@@ -97,33 +97,33 @@ header-includes:
 
 ## Установка программного обеспечения
 
-- Установка git (рис. @fig:001).
+- Установка git(dnf install git) (рис. @fig:001).
 
 ![git](image/14.png){#fig:001 width=70%}
 
-- Установка gh (рис. @fig:002).
+- Установка gh(dnf install gh) (рис. @fig:002).
 
-![gh](image/26.png){#fig:002 width=70%}
+![gh](image/28.png){#fig:002 width=70%}
 
 ## Базовая настройка git
 
-- Зададим имя и email владельца репозитория (рис. @fig:003).
+- Зададим имя и email владельца репозитория (git config --global user.name "Name Surname", git config --global user.email "work@mail") (рис. @fig:003).
 
 ![name and email](image/11.jpg){#fig:003 width=70%}
 
-- Настроим utf-8 в выводе сообщений git (рис. @fig:004).
+- Настроим utf-8 в выводе сообщений git(git config --global core.quotepath false) (рис. @fig:004).
 
 ![utf-8](image/17.jpg){#fig:004 width=70%}
 
-- Зададим имя начальной ветки (будем называть её master) (рис. @fig:005).
+- Зададим имя начальной ветки(git config --global init.defaultBranch master) (будем называть её master) (рис. @fig:005).
 
 ![master](image/23.jpg){#fig:005 width=70%}
 
-- Параметр autocrlf (рис. @fig:006).
+- Параметр autocrlf(git config --global core.autocrlf input) (рис. @fig:006).
 
 ![autocrlf](image/29.jpg){#fig:006 width=70%}
 
-- Параметр safecrlf (рис. @fig:007).
+- Параметр safecrlf(git config --global core.safecrlf warn) (рис. @fig:007).
 
 ![safecrlf](image/32.jpg){#fig:007 width=70%}
 
@@ -135,7 +135,7 @@ header-includes:
 
 ## Создайте ключи pgp
 
-- Генерируем ключ (рис. @fig:009), (рис. @fig:0010)
+- Генерируем ключ(gpg --full-generate-key) (рис. @fig:009), (рис. @fig:0010)
 
 ![pgp](image/37.png){#fig:009 width=70%}
 
@@ -149,11 +149,11 @@ header-includes:
 
 ## Добавление PGP ключа в GitHub
 
-- Выводим список ключей и копируем отпечаток приватного ключа (рис. @fig:0012)
+- Выводим список ключей и копируем отпечаток приватного ключа (gpg --list-secret-keys --keyid-format LONG) (рис. @fig:0012)
 
 ![key pgp](image/40.png){#fig:0012 width=70%}
 
-- Cкопируйте ваш сгенерированный PGP ключ в буфер обмена (рис. @fig:0013)
+- Cкопируйте ваш сгенерированный PGP ключ в буфер обмена (gpg --armor --export <PGP Fingerprint> | xclip -sel clip) (рис. @fig:0013)
 
 ![copy pgp](image/41.png){#fig:0013 width=70%}
 
@@ -163,19 +163,19 @@ header-includes:
 
 ## Настройка автоматических подписей коммитов git
 
-Используя введёный email, укажите Git применять его при подписи коммитов (рис. @fig:0015)
+Используя введёный email, укажите Git применять его при подписи коммитов (git config --global user.signingkey <PGP Fingerprint>, git config --global commit.gpgsign true, git config --global gpg.program $(which gpg2)) (рис. @fig:0015)
 
 ![подписи коммитов](image/42.png){#fig:0015 width=70%}
 
 ## Настройка gh
 
-- Авторизоваться в gh (рис. @fig:0016)
+- Авторизоваться в gh (gh auth login) (рис. @fig:0016)
 
 ![gh](image/43.png){#fig:0016 width=70%}
 
 ## Создание репозитория курса на основе шаблона
 
-- Создать шаблон рабочего пространства (рис. @fig:0017)
+- Создать шаблон рабочего пространства(gh repo create study_2022-2023_os-intro --template=yamadharma/course-directory-student-template --public) (рис. @fig:0017)
 
 ![gh](image/44.png){#fig:0017 width=70%}
 
@@ -183,7 +183,7 @@ header-includes:
 
 ## Настройка каталога курса
 
-- Файлы на сервере (рис. @fig:0018), (рис. @fig:0019)
+- Файлы на сервере (rm package.json) (рис. @fig:0018), (рис. @fig:0019)
 
 ![Файлы](image/45.png){#fig:0018 width=70%}
 
