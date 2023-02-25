@@ -2,12 +2,10 @@
 ## Front matter
 lang: ru-RU
 title: Первый этап выполнения Проекта
-subtitle: по дисциплине "Операционные системы"
 author:
   - Хамдамова А.А.
 institute:
   - Российский университет дружбы народов, Москва, Россия
- date: 25 февраля 2023
 
 ## i18n babel
 babel-lang: russian
