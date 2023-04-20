@@ -1,7 +1,7 @@
 ---
 ## Front matter
 title: "Отчёт по лабораторной работе № 11"
-author: "Королёв Иван Андреевич
+author: "Королёв Иван Андреевич"
 
 ## Generic otions
 lang: ru-RU
